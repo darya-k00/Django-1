@@ -6,17 +6,17 @@ load_dotenv()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': os.environ("HOST_DB"),
-        'PORT': os.environ("PORT_DB"),
-        'NAME': os.environ("NAME_DB"),
-        'USER': os.environ("USER_DB"),
-        'PASSWORD': os.environ("PASSWORD_DB"),
+        'HOST': os.getenv("DB_HOST"),
+        'PORT': os.getenv("DB_PORT"),
+        'NAME': os.getenv("DB_NAME"),
+        'USER': os.getenv("DB_USER"),
+        'PASSWORD': os.getenv("DB_PASSWORD"),
     }
 }
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = 'REPLACE_ME'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 TIME_ZONE = 'Europe/Moscow'
 
